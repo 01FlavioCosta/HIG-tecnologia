@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HIG Tecnologia | ONE STEP AHEAD</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <img src="https://via.placeholder.com/200x100/004080/FFFFFF?text=HIG+Tech" alt="Logo HIG Tecnologia" class="logo">
+        <h1>ONE<br>STEP<br>AHEAD!</h1>
+        <p>Quando o assunto é tecnologia e futuro.</p>
+        <nav>
+            <a href="#telecom">Telecomunicações</a>
+            <a href="#energia">Energia Solar</a>
+            <a href="#cyber">CyberSegurança</a>
+            <a href="#seguranca">Segurança Pública</a>
+        </nav>
+    </header>
+
+    <section id="descricao">
+        <p>HIG Tecnologia: Empresa dedicada a tecnologias de ponta, oferecendo soluções inovadoras para Segurança Pública, Redes, Cidades Inteligentes e Energia Renovável. Descubra mais sobre o que podemos fazer por você.</p>
+    </section>
+
+    <section id="parcerias">
+        <h2>Principais Fabricantes do Mundo!</h2>
+        <p>Parcerias sólidas que constroem soluções inovadoras pelo mundo.</p>
+        <div class="logos">
+            <img src="https://via.placeholder.com/150?text=Extreme+Networks" alt="Extreme Networks">
+            <img src="https://via.placeholder.com/150?text=Milestone" alt="Milestone">
+            <img src="https://via.placeholder.com/150?text=Cyberark" alt="Cyberark">
+            <img src="https://via.placeholder.com/150?text=Akamai" alt="Akamai">
+        </div>
+    </section>
+
+    <section id="sobre">
+        <h2>Somos a HIG Tecnologia</h2>
+        <p>Trabalhamos com um vasto portfólio de empresas especializadas no mercado tecnológico, focadas no fornecimento e implementação de soluções de ponta. Nossas ofertas incluem a construção de linhas de energia, comunicação e infraestrutura relacionadas, sempre com a máxima eficiência e inovação.</p>
+    </section>
+
+    <section id="contatos">
+        <h2>Nossos Endereços</h2>
+        <ul>
+            <li>Curitiba-PR: Av. Mariano Torres, 729 – 10º Andar – Centro, CEP: 80060-120, Tel: (41) 3908-8438</li>
+            <li>Tatuí-SP: Rua Vice-prefeito Nelson Fiuza, 367 - Jardim Ternura, CEP: 18.279-450, Tel: (41) 9275-0888</li>
+            <li>Quatro Barras-PR: Rua Padre Cesari Lelli, 1255 – Centro Industrial, CEP: 83.420-120, Tel: (41) 3908-8438</li>
+            <li>Joinville-SC: Rua Evaristo da Veiga, 101 – Glória, CEP: 89.216-215, Tel: (41) 3908-8438</li>
+            <li>Vila Velha-ES: Rua Rosa Vermelha, 733 – Galpão 01 Letra K – Aldeota – Polo Empresarial Novo México, CEP: 29.104-372, Tel: (41) 3908-8438</li>
+            <li>Rio de Janeiro-RJ: Rua da Ajuda no 35 / Sala 601 – Centro, CEP: 20040-915, Tel: (41) 3908-8438</li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 HIG Tecnologia. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
