@@ -1,1 +1,437 @@
-index.html
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HIG Tecnologia — Soluções em Smart Cities</title>
+  <meta name="description" content="HIG Tecnologia: soluções inovadoras em Segurança Pública com IA, Telecomunicações, Energia Solar, Parque Tecnológico e Data Centers. Transformamos sua cidade em uma Smart City." />
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+  <style>
+    :root{
+      --bg:#0a1624;           /* fundo escuro */
+      --bg-2:#071220;         /* variação */
+      --text:#cbd5e1;         /* slate-300 */
+      --white:#fff;
+      --cyan:#19e1ff;         /* ciano HIG */
+      --cyan-soft:#8deaff;
+      --blue:#1b6bb3;         /* azul HIG */
+      --card:#0f2136cc;       /* cartões translúcidos */
+      --stroke:#203348;       /* borda sutil */
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      scroll-behavior: smooth;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:radial-gradient(1200px 600px at 10% -10%, rgba(25,225,255,.06), transparent), radial-gradient(1000px 500px at 100% 10%, rgba(27,107,179,.10), transparent), var(--bg); color:var(--text); font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    /* Header */
+    .nav{position:fixed;inset-inline:0;top:0;z-index:60;backdrop-filter:saturate(1.2) blur(10px);background:rgba(5,15,28,.55);border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav .wrap{max-width:1200px;margin:auto;padding:12px 20px;display:flex;align-items:center;gap:16px;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:10px}
+    .logo{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg, rgba(25,225,255,.18), rgba(27,107,179,.25));border:1px solid rgba(25,225,255,.25);box-shadow:0 4px 18px rgba(25,225,255,.18) inset}
+    .brand-title{color:var(--white);font-weight:700;letter-spacing:.2px}
+    .menu{display:flex;gap:22px}
+    .menu a{font-size:.94rem;opacity:.9}
+    .menu a:hover{color:var(--white)}
+    .cta{background:var(--cyan);color:#06202a;padding:8px 14px;border-radius:12px;font-weight:700}
+    /* Sections */
+    section{padding:90px 20px}
+    .container{max-width:1200px;margin:0 auto}
+    .hero{min-height:82vh;display:grid;place-items:center;position:relative;overflow:hidden;padding-top:120px}
+    .hero video,.hero .bg-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.65}
+    .hero::after{content:\"\";position:absolute;inset:0;background:linear-gradient(to bottom, rgba(7,18,32,.65), rgba(7,18,32,.92))}
+    .hero .content{position:relative;z-index:2;max-width:980px}
+    .chip{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(25,225,255,.3);background:rgba(12,26,44,.5);color:var(--cyan-soft);padding:6px 12px;border-radius:999px;font-size:.9rem}
+    h1{margin:14px 0 0;color:var(--white);font-weight:800;line-height:1.15;font-size:clamp(2.2rem, 4.2vw, 3.5rem)}
+    p.lead{font-size:1.125rem;color:#d7e3ee;max-width:760px}
+    .cta-row{margin-top:24px;display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:14px;font-weight:700;border:1px solid rgba(25,225,255,.35)}
+    .btn.primary{background:var(--cyan);color:#08222b;border-color:transparent}
+    .btn.ghost{color:var(--white);background:rgba(255,255,255,.05)}
+    /* Cards grid */
+    .grid{display:grid;gap:22px}
+    @media(min-width:640px){.grid.cols-2{grid-template-columns:repeat(2,1fr)}}
+    @media(min-width:960px){.grid.cols-3{grid-template-columns:repeat(3,1fr)}}
+    .card{background:var(--card);border:1px solid var(--stroke);border-radius:18px;padding:20px;box-shadow:var(--shadow)}
+    .card h3{color:var(--white);margin:10px 0 6px}
+    .learn{display:inline-flex;align-items:center;gap:6px;color:var(--cyan);font-weight:600;margin-top:10px}
+    .section-title{color:var(--white);font-weight:800;font-size:2rem;margin:0 0 8px}
+    .section-sub{opacity:.9;margin-bottom:24px;max-width:800px}
+    /* Gallery */
+    .gallery{display:grid;gap:18px}
+    @media(min-width:760px){.gallery{grid-template-columns:repeat(3,1fr)}}
+    .tile{position:relative;overflow:hidden;border-radius:16px;border:1px solid var(--stroke);background:#0e1e33}
+    .tile img{width:100%;height:100%;aspect-ratio:4/3;object-fit:cover;transition:transform .4s ease}
+    .tile:hover img{transform:scale(1.04)}
+    .tile figcaption{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(to top, rgba(2,10,19,.8), transparent);color:#cfe7f5;padding:10px 12px;font-size:.92rem}
+    /* Blog */
+    .blog-card{background:var(--card);border:1px solid var(--stroke);border-radius:18px;padding:18px}
+    .blog-img{border-radius:12px;overflow:hidden}
+    /* Contato */
+    .contact{display:grid;gap:22px}
+    @media(min-width:980px){.contact{grid-template-columns:1.1fr 1fr}}
+    input,textarea{width:100%;background:#0d1d31;border:1px solid #23384f;color:#e6f2fa;padding:12px 14px;border-radius:14px;outline:none}
+    textarea{min-height:120px;resize:vertical}
+    .submit{background:var(--cyan);color:#08222b;border:0;border-radius:14px;padding:12px 18px;font-weight:800}
+    /* Footer */
+    footer{border-top:1px solid rgba(255,255,255,.06);background:rgba(5,15,28,.55)}
+    footer .wrap{max-width:1200px;margin:auto;padding:22px 20px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+    /* Modal */
+    .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.6);z-index:100}
+    .modal.open{display:flex}
+    .modal-card{max-width:720px;width:92%;background:#0d1d31;border:1px solid var(--stroke);border-radius:18px;padding:18px 18px 22px;box-shadow:var(--shadow)}
+    .modal-card h3{margin:0 0 10px;color:#fff}
+    .modal-close{background:transparent;border:1px solid #2a415a;color:#cfe7f5;border-radius:10px;padding:6px 10px;cursor:pointer}
+    .badge{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(25,225,255,.3);background:rgba(12,26,44,.5);padding:7px 12px;border-radius:999px;margin:6px 6px 0 0}
+    .badge svg{width:16px;height:16px;color:var(--cyan)}
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <div class="nav">
+    <div class="wrap">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">
+          <!-- mini-selo estilizado que combina com a sua logo; pode trocar por <img src="sualogo.png"> -->
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 3l7 3v5c0 5-3.5 8-7 10-3.5-2-7-5-7-10V6l7-3Z" stroke="currentColor" stroke-width="1.4" opacity=".85"/>
+            <path d="M12 18V8m0 0l-3 3m3-3l3 3" stroke="#19e1ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <strong class="brand-title">HIG Tecnologia</strong>
+      </div>
+      <nav class="menu">
+        <a href="#home">Home</a>
+        <a href="#quem-somos">Quem Somos</a>
+        <a href="#solucoes">Soluções</a>
+        <a href="#produtos">Produtos</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#blog">Blog</a>
+        <a href="#contato" class="cta">Contato</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <video autoplay muted playsinline loop>
+      <source src="https://cdn.coverr.co/videos/coverr-night-city-technology-3080/1080p.mp4" type="video/mp4">
+    </video>
+    <div class="content container">
+      <span class="chip">HIG Tecnologia — Itapeva, SP</span>
+      <h1>Soluções inovadoras em Segurança Pública com IA, Telecomunicações, Energia Solar, Parque Tecnológico e Data Centers.</h1>
+      <p class="lead">Transformamos sua cidade em uma <strong style="color:var(--cyan)">Smart City</strong> com tecnologia de ponta e integração total.</p>
+      <div class="cta-row">
+        <a href="#solucoes" class="btn primary">Nossas Soluções</a>
+        <a href="#contato" class="btn ghost">Fale Conosco</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUEM SOMOS -->
+  <section id="quem-somos">
+    <div class="container">
+      <h2 class="section-title">Quem Somos</h2>
+      <p class="section-sub">
+        A <strong style="color:#fff">HIG Tecnologia</strong> é especializada em soluções integradas para Segurança Pública, Telecomunicações, Energia Solar e Data Centers.
+        Nosso objetivo é transformar cidades em ambientes inteligentes, seguros e sustentáveis — começando por Itapeva, SP.
+      </p>
+      <div>
+        <span class="badge">Segurança Pública com IA</span>
+        <span class="badge">Telecomunicações</span>
+        <span class="badge">Energia Solar</span>
+        <span class="badge">Data Centers</span>
+        <span class="badge">Parque Tecnológico</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUÇÕES -->
+  <section id="solucoes">
+    <div class="container">
+      <h2 class="section-title">Soluções</h2>
+      <p class="section-sub">Integração ponta a ponta, com orquestração de hardware, software e IA para operações críticas.</p>
+      <div class="grid cols-3">
+        <article class="card">
+          <h3>Segurança Pública com IA</h3>
+          <p>Reconhecimento facial, LPR, analytics de vídeo, detecção de eventos e integração com CCO.</p>
+          <a href="#" class="learn" data-modal="seg-ia">Saiba mais ▸</a>
+        </article>
+        <article class="card">
+          <h3>Telecomunicações</h3>
+          <p>Backbone em fibra, enlaces PTP/PTMP, SD-WAN e redes privadas 4G/5G para missão crítica.</p>
+          <a href="#" class="learn" data-modal="telecom">Saiba mais ▸</a>
+        </article>
+        <article class="card">
+          <h3>Energia Solar</h3>
+          <p>Usinas e geração distribuída (on/off-grid), monitoramento remoto e otimização de consumo.</p>
+          <a href="#" class="learn" data-modal="solar">Saiba mais ▸</a>
+        </article>
+        <article class="card">
+          <h3>Data Centers</h3>
+          <p>Infraestrutura segura, redundância N+1, cloud híbrida, backups e observabilidade.</p>
+          <a href="#" class="learn" data-modal="datacenter">Saiba mais ▸</a>
+        </article>
+        <article class="card">
+          <h3>Parque Tecnológico</h3>
+          <p>Hub de inovação com P&D, provas de conceito e integração de startups para Smart Cities.</p>
+          <a href="#" class="learn" data-modal="parque">Saiba mais ▸</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUTOS -->
+  <section id="produtos">
+    <div class="container">
+      <h2 class="section-title">Produtos</h2>
+      <p class="section-sub">Portfólio completo para cidades inteligentes e missões críticas.</p>
+      <div class="grid cols-3">
+        <article class="card">
+          <h3>Postes Inteligentes com IA</h3>
+          <p>Câmeras, alto-falante, iluminação, energia solar opcional e analytics em edge.</p>
+          <a href="#" class="learn" data-modal="poste-ia">Saiba mais ▸</a>
+        </article>
+        <article class="card">
+          <h3>Câmeras PTZ e Analíticas</h3>
+          <p>4K, IR, WDR, perfis ONVIF e integração com VMS para cenários urbanos.</p>
+          <a href="#" class="learn" data-modal="cameras">Saiba mais ▸</a>
+        </article>
+        <article class="card">
+          <h3>VMS e Servidores</h3>
+          <p>RAID, GPU, alta disponibilidade, gravação distribuída, auditoria e relatórios.</p>
+          <a href="#" class="learn" data-modal="vms">Saiba mais ▸</a>
+        </article>
+        <article class="card">
+          <h3>Kits Fotovoltaicos</h3>
+          <p>On-grid e off-grid com estruturas, inversores e telemetria para reduzir custos.</p>
+          <a href="#" class="learn" data-modal="kits-solares">Saiba mais ▸</a>
+        </article>
+        <article class="card">
+          <h3>Conectividade 5G/LoRaWAN</h3>
+          <p>Gateways, rádios e sensores IoT para iluminação, trânsito e meio ambiente.</p>
+          <a href="#" class="learn" data-modal="conectividade">Saiba mais ▸</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJETOS -->
+  <section id="projetos">
+    <div class="container">
+      <h2 class="section-title">Projetos</h2>
+      <p class="section-sub">Referências visuais de implantações e cenários tecnológicos.</p>
+      <div class="gallery">
+        <figure class="tile">
+          <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1600&q=60" alt="Câmera de vigilância urbana" />
+          <figcaption>Câmera de vigilância urbana</figcaption>
+        </figure>
+        <figure class="tile">
+          <img src="https://images.unsplash.com/photo-1581090464777-f3220bbe1b8d?auto=format&fit=crop&w=1600&q=60" alt="Torre de telecomunicações" />
+          <figcaption>Torre de telecomunicações</figcaption>
+        </figure>
+        <figure class="tile">
+          <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=1600&q=60" alt="Usina de energia solar" />
+          <figcaption>Usina de energia solar</figcaption>
+        </figure>
+        <figure class="tile">
+          <img src="https://images.unsplash.com/photo-1508057198894-247b23fe5ade?auto=format&fit=crop&w=1600&q=60" alt="Cidade inteligente à noite" />
+          <figcaption>Cidade inteligente à noite</figcaption>
+        </figure>
+        <figure class="tile">
+          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1600&q=60" alt="Data center com racks" />
+          <figcaption>Data center com racks</figcaption>
+        </figure>
+        <figure class="tile">
+          <img src="https://images.unsplash.com/photo-1551281044-8a33b5883817?auto=format&fit=crop&w=1600&q=60" alt="Fibra óptica e conectividade" />
+          <figcaption>Fibra óptica e conectividade</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG -->
+  <section id="blog">
+    <div class="container">
+      <h2 class="section-title">Blog / Notícias</h2>
+      <p class="section-sub">Atualizações sobre IA, segurança pública e Smart Cities.</p>
+      <div class="grid cols-3">
+        <article class="blog-card">
+          <div class="blog-img">
+            <img src="https://images.unsplash.com/photo-1551281044-8a33b5883817?auto=format&fit=crop&w=1200&q=60" alt="" />
+          </div>
+          <h3 style="color:#fff;margin:12px 0 6px">Integração de CCO com IA</h3>
+          <p>Como consolidar dados de câmeras, alarmes e viaturas em um único painel operacional.</p>
+          <a href="#" class="learn" data-modal="post-1">Ler mais ▸</a>
+        </article>
+        <article class="blog-card">
+          <div class="blog-img">
+            <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=1200&q=60" alt="" />
+          </div>
+          <h3 style="color:#fff;margin:12px 0 6px">Energia para cidades conectadas</h3>
+          <p>Como o solar reduz custos e garante autonomia para estruturas críticas urbanas.</p>
+          <a href="#" class="learn" data-modal="post-2">Ler mais ▸</a>
+        </article>
+        <article class="blog-card">
+          <div class="blog-img">
+            <img src="https://images.unsplash.com/photo-1508057198894-247b23fe5ade?auto=format&fit=crop&w=1200&q=60" alt="" />
+          </div>
+          <h3 style="color:#fff;margin:12px 0 6px">Conectividade 5G e LoRaWAN</h3>
+          <p>Redes para sensores, iluminação, mobilidade e meio ambiente nas Smart Cities.</p>
+          <a href="#" class="learn" data-modal="post-3">Ler mais ▸</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section id="contato">
+    <div class="container contact">
+      <div class="card">
+        <h3 style="color:#fff;margin-top:0">Fale com a HIG Tecnologia</h3>
+        <p>Itapeva – SP • Atendimento: Juliane</p>
+        <p>📞 (15) 9 7404-7668</p>
+        <p>✉️ contato@higtecnologia.com.br</p>
+        <form onsubmit="event.preventDefault(); alert('Mensagem enviada! Em breve retornaremos.');">
+          <input placeholder="Nome" required>
+          <input placeholder="E-mail" type="email" required>
+          <input placeholder="Telefone">
+          <textarea placeholder="Mensagem" required></textarea>
+          <button class="submit">Enviar</button>
+        </form>
+      </div>
+      <div class="card">
+        <iframe title="Mapa Itapeva, SP" width="100%" height="380" style="border:0;border-radius:12px" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d234638.3539652907!2d-49.042!3d-23.979!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c40b4d5a8a1a3f%3A0x9f2f4b3a1e7c2b6!2sItapeva%2C%20SP!5e0!3m2!1spt-BR!2sBR!4v1700000000000"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap">
+      <div style="display:flex;align-items:center;gap:10px">
+        <div class="logo" aria-hidden="true"></div>
+        <strong>HIG Tecnologia</strong>
+      </div>
+      <small>© <span id="year"></span> HIG Tecnologia — Todos os direitos reservados • Itapeva – SP • Tel: (15) 9 7404-7668 • Juliane</small>
+    </div>
+  </footer>
+
+  <!-- MODAL -->
+  <div id="modal" class="modal" aria-hidden="true">
+    <div class="modal-card">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+        <h3 id="modal-title">Detalhes</h3>
+        <button class="modal-close" onclick="closeModal()">Fechar</button>
+      </div>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <script>
+    // Atualiza ano
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Conteúdos dos modais
+    const MODALS = {
+      "seg-ia": {
+        t: "Segurança Pública com IA",
+        b: `<ul>
+              <li>VMS profissional com auditoria e cadeia de custódia.</li>
+              <li>Leitura automática de placas (LPR) e reconhecimento facial conforme LGPD (art. 4º, III).</li>
+              <li>Detecção de eventos: perímetro, objeto abandonado, aglomerações, armas.</li>
+              <li>Integração com CCO, Terminais de Consulta e forças de segurança.</li>
+            </ul>`
+      },
+      "telecom": {
+        t: "Telecomunicações",
+        b: `<ul>
+              <li>Backbone em fibra óptica, enlaces PTP/PTMP e QoS para missões críticas.</li>
+              <li>Redundância, SD-WAN e segmentação para vídeo e dados.</li>
+            </ul>`
+      },
+      "solar": {
+        t: "Energia Solar",
+        b: `<ul>
+              <li>Usinas on-grid e off-grid para praças, escolas e postes inteligentes.</li>
+              <li>Monitoramento remoto e otimização de consumo.</li>
+            </ul>`
+      },
+      "datacenter": {
+        t: "Data Centers",
+        b: `<ul>
+              <li>Racks, cooling, redundância N+1 e backups.</li>
+              <li>Cloud híbrida, observabilidade e alta disponibilidade.</li>
+            </ul>`
+      },
+      "parque": {
+        t: "Parque Tecnológico",
+        b: `<ul>
+              <li>Hub de inovação, provas de conceito e integração de startups.</li>
+            </ul>`
+      },
+      "poste-ia": {
+        t: "Postes Inteligentes com IA",
+        b: `<ul>
+              <li>Analytics embarcado e alertas em tempo real.</li>
+              <li>Conectividade (fibra/rádio/4G/5G) e energia solar opcional.</li>
+            </ul>`
+      },
+      "cameras": {
+        t: "Câmeras PTZ e Analíticas",
+        b: `<ul>
+              <li>PTZ de longo alcance, 4K, IR, WDR e perfis ONVIF.</li>
+              <li>Integração com VMS corporativo.</li>
+            </ul>`
+      },
+      "vms": {
+        t: "VMS e Servidores",
+        b: `<ul>
+              <li>RAID, failover, gravação distribuída e auditoria.</li>
+              <li>Dashboards e relatórios executivos.</li>
+            </ul>`
+      },
+      "kits-solares": {
+        t: "Kits Fotovoltaicos",
+        b: `<ul>
+              <li>Estruturas, inversores e telemetria.</li>
+              <li>Redução de custos operacionais.</li>
+            </ul>`
+      },
+      "conectividade": {
+        t: "Conectividade 5G/LoRaWAN",
+        b: `<ul>
+              <li>Gateways, rádios e sensores IoT.</li>
+              <li>Aplicações: iluminação, trânsito, meio ambiente.</li>
+            </ul>`
+      },
+      "post-1": { t: "Integração de CCO com IA", b: "<p>Consolidação de dados operacionais com visão centrada em eventos e indicadores de eficácia.</p>" },
+      "post-2": { t: "Energia para cidades conectadas", b: "<p>Modelos de geração que sustentam operações críticas com previsibilidade de custos.</p>" },
+      "post-3": { t: "Conectividade 5G e LoRaWAN", b: "<p>Arquiteturas de rede para sensores, mobilidade e monitoramento ambiental.</p>" }
+    };
+
+    // Abre modal ao clicar em "Saiba mais"
+    document.querySelectorAll('[data-modal]').forEach(el=>{
+      el.addEventListener('click', e=>{
+        e.preventDefault();
+        const key = el.getAttribute('data-modal');
+        const data = MODALS[key];
+        if(!data) return;
+        document.getElementById('modal-title').innerHTML = data.t;
+        document.getElementById('modal-body').innerHTML = data.b;
+        document.getElementById('modal').classList.add('open');
+        document.getElementById('modal').setAttribute('aria-hidden','false');
+      });
+    });
+    function closeModal(){
+      document.getElementById('modal').classList.remove('open');
+      document.getElementById('modal').setAttribute('aria-hidden','true');
+    }
+    document.getElementById('modal').addEventListener('click', (e)=>{
+      if(e.target.id==='modal') closeModal();
+    });
+  </script>
+</body>
+</html>
